@@ -31,17 +31,25 @@ export default function Form() {
     setSubmitted(true);
   }
   return (
-    <div class='form-container'>
+    <div className='form-container'>
       {error && <Alert variant='danger'>{error}</Alert>}
       {submitted && valid ? (
-        <div class='success-message'>Success! Thank you for registering</div>
+        <div className='success-message'>
+          Success! Thank you for registering
+        </div>
       ) : null}
-      <form class='register-form' onSubmit={handleSubmit}>
+      <form
+        method='post'
+        action='/users'
+        className='register-form'
+        onSubmit={handleSubmit}
+      >
+        {console.log(values.phoneNumber)}
         <input
           onChange={handlePhoneNumberInputChange}
           value={values.phoneNumber}
           id='phone-number'
-          class='form-field'
+          className='form-field'
           // type='text'
           placeholder='Phone Number'
           name='phoneNumber'
@@ -54,12 +62,12 @@ export default function Form() {
           onChange={handleAccessCodeInputChange}
           value={values.accessCode}
           id='access-code'
-          class='form-field'
+          className='form-field'
           // type='text'
           placeholder='Access Code'
           name='accessCode'
         />
-        <button disabled={loading} class='form-field' type='submit'>
+        <button disabled={loading} className='form-field' type='submit'>
           Sign Up
         </button>
       </form>
