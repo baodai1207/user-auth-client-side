@@ -1,6 +1,6 @@
 import React from 'react';
-import Form from './Form';
+import Signup from './Signup';
 
 export default function App() {
-  return <Form />;
+  return <Signup />;
 }

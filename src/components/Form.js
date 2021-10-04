@@ -7,6 +7,7 @@ export default function Form() {
   const [values, setValues] = useState({
     phoneNumber: '',
     accessCode: '',
+    // showAccessCode: false,
   });
 
   const [loading, setLoading] = useState(false);
@@ -27,19 +28,18 @@ export default function Form() {
     const user = {
       phoneNumber: '',
       accessCode: '',
+      // showAccessCode: true,
     };
-    console.log(values.phoneNumber);
-    // axios
-    //   .post('http://localhost:5000/api/user', user)
-    //   .then(() => console.log('User Created'))
-    //   .catch(err => {
-    //     console.log(err);
-    //   });
-    // if (values.phoneNumber) {
-    //   // setError('Please enter a phone number!');
-    //   setValid(true);
+    // console.log(values.phoneNumber);
+    // if (values.phoneNumber !== 10 && isNaN(values.phoneNumber)) {
+    //   setError('Please enter a phone number!');
     // }
-    // NEED TO CHECK ACCESS CODE IF IT IS THE SAME WITH GENERATED CODE
+    axios
+      .post('http://localhost:5000/api/users/create', user)
+      .then(() => console.log('User Created'))
+      .catch(err => {
+        console.log(err);
+      });
     setSubmitted(true);
   }
   return (
@@ -50,13 +50,8 @@ export default function Form() {
           Success! Thank you for registering
         </div>
       ) : null}
-      <form
-        // method='post'
-        // action='/users'
-        className='register-form'
-        onSubmit={handleSubmit}
-      >
-        {console.log(values.phoneNumber)}
+      <form className='register-form' onSubmit={handleSubmit}>
+        {/* {console.log(values.phoneNumber)} */}
         <input
           onChange={handlePhoneNumberInputChange}
           value={values.phoneNumber}
@@ -72,6 +67,7 @@ export default function Form() {
         isNaN(values.phoneNumber) ? (
           <span id='phone-number-error'>Please enter a phone number</span>
         ) : null}
+
         <input
           onChange={handleAccessCodeInputChange}
           value={values.accessCode}
