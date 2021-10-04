@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { Alert } from 'react-bootstrap';
 import './form.css';
+<<<<<<< HEAD
+=======
+import axios from 'axios';
+>>>>>>> fdbe6ee12732c3a1d6a81099ab39a461b94613bf
 
 export default function Form() {
   const [values, setValues] = useState({
@@ -23,10 +27,28 @@ export default function Form() {
 
   function handleSubmit(e) {
     e.preventDefault();
+<<<<<<< HEAD
     if (values.phoneNumber) {
       // setError('Please enter a phone number!');
       setValid(true);
     }
+=======
+    const user = {
+      phoneNumber: '',
+      accessCode: '',
+    };
+    console.log(values.phoneNumber);
+    // axios
+    //   .post('http://localhost:5000/api/user', user)
+    //   .then(() => console.log('User Created'))
+    //   .catch(err => {
+    //     console.log(err);
+    //   });
+    // if (values.phoneNumber) {
+    //   // setError('Please enter a phone number!');
+    //   setValid(true);
+    // }
+>>>>>>> fdbe6ee12732c3a1d6a81099ab39a461b94613bf
     // NEED TO CHECK ACCESS CODE IF IT IS THE SAME WITH GENERATED CODE
     setSubmitted(true);
   }
@@ -39,8 +61,13 @@ export default function Form() {
         </div>
       ) : null}
       <form
+<<<<<<< HEAD
         method='post'
         action='/users'
+=======
+        // method='post'
+        // action='/users'
+>>>>>>> fdbe6ee12732c3a1d6a81099ab39a461b94613bf
         className='register-form'
         onSubmit={handleSubmit}
       >
@@ -55,7 +82,13 @@ export default function Form() {
           name='phoneNumber'
           required
         />
+<<<<<<< HEAD
         {submitted && values.phoneNumber ? (
+=======
+        {submitted &&
+        values.phoneNumber.length !== 10 &&
+        isNaN(values.phoneNumber) ? (
+>>>>>>> fdbe6ee12732c3a1d6a81099ab39a461b94613bf
           <span id='phone-number-error'>Please enter a phone number</span>
         ) : null}
         <input

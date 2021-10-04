@@ -2,6 +2,10 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+<<<<<<< HEAD
+=======
+  "proxy": "http://localhost:5000",
+>>>>>>> fdbe6ee12732c3a1d6a81099ab39a461b94613bf
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
@@ -10,7 +14,11 @@
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.4",
     "react-dom": "^17.0.2",
+<<<<<<< HEAD
     "react-scripts": "4.0.3",
+=======
+    "react-scripts": "^4.0.3",
+>>>>>>> fdbe6ee12732c3a1d6a81099ab39a461b94613bf
     "web-vitals": "^1.1.2"
   },
   "scripts": {
