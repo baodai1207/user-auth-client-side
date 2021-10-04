@@ -33,14 +33,14 @@ export default class Signup extends Component {
       accessCode: this.state.accessCode,
     };
 
-    // axios
-    //   .post('http://localhost:5000/users/create', userObject)
-    //   .then(res => {
-    //     console.log(res.data);
-    //   })
-    //   .catch(error => {
-    //     console.log(error);
-    //   });
+    axios
+      .post('/api/create', userObject)
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
 
     this.setState({ phoneNumber: '', accessCode: '' });
   }
