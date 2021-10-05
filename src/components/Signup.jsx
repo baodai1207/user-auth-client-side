@@ -33,7 +33,7 @@ export default class Signup extends Component {
       phoneNumber: this.state.phoneNumber,
       accessCode: this.state.accessCode,
     };
-    if (this.state.accessCode != null || this.state.accessCode !== undefined) {
+    if (this.state.accessCode.length > 0) {
       axios
         .post('/api/users', userObject)
         .then(res => {
@@ -43,10 +43,7 @@ export default class Signup extends Component {
           console.log(error);
         });
       this.setState({ phoneNumber: '', accessCode: '' });
-    } else if (
-      this.state.accessCode == null ||
-      this.state.accessCode === undefined
-    ) {
+    } else if (this.state.accessCode.length === 0) {
       axios
         .post('/api/create', userObject)
         .then(res => {
