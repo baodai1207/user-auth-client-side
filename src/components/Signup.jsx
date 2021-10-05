@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Alert } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import './signup.css';
 import axios from 'axios';
 
@@ -33,6 +35,7 @@ export default class Signup extends Component {
       phoneNumber: this.state.phoneNumber,
       accessCode: this.state.accessCode,
     };
+    //Check if access code empty
     if (this.state.accessCode.length > 0) {
       axios
         .post('/api/users', userObject)
@@ -43,6 +46,7 @@ export default class Signup extends Component {
           console.log(error);
         });
       this.setState({ phoneNumber: '', accessCode: '' });
+      //Check if access code empty
     } else if (this.state.accessCode.length === 0) {
       axios
         .post('/api/create', userObject)
@@ -69,7 +73,7 @@ export default class Signup extends Component {
             placeholder='Phone Number'
             name='phoneNumber'
             required
-          />{' '}
+          />
           <input
             onChange={this.onChangeAccessCode}
             value={this.state.accessCode}
