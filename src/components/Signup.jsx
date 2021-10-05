@@ -64,6 +64,9 @@ export default class Signup extends Component {
     return (
       <div className='form-container'>
         <form className='register-form' onSubmit={this.onSubmit}>
+          {this.state.phoneNumber < 10 ? (
+            <Alert variant='danger'> Please enter 10 digits number </Alert>
+          ) : null}
           <input
             onChange={this.onChangePhoneNumber}
             value={this.state.phoneNumber}
@@ -74,6 +77,7 @@ export default class Signup extends Component {
             name='phoneNumber'
             required
           />
+
           <input
             onChange={this.onChangeAccessCode}
             value={this.state.accessCode}
