@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Alert } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+// import { Message } from 'semantic-ui-react';
 
 import './signup.css';
 import axios from 'axios';
@@ -11,11 +12,13 @@ export default class Signup extends Component {
 
     this.onChangePhoneNumber = this.onChangePhoneNumber.bind(this);
     this.onChangeAccessCode = this.onChangeAccessCode.bind(this);
+
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
       phoneNumber: '',
       accessCode: '',
+      formError: false,
     };
   }
 
@@ -64,9 +67,6 @@ export default class Signup extends Component {
     return (
       <div className='form-container'>
         <form className='register-form' onSubmit={this.onSubmit}>
-          {this.state.phoneNumber < 10 ? (
-            <Alert variant='danger'> Please enter 10 digits number </Alert>
-          ) : null}
           <input
             onChange={this.onChangePhoneNumber}
             value={this.state.phoneNumber}
@@ -77,6 +77,16 @@ export default class Signup extends Component {
             name='phoneNumber'
             required
           />
+          {this.state.phoneNumber.length < 10 ? (
+            <Alert variant='primary'>
+              {' '}
+              Please enter 10 digits phone number to sign up{' '}
+            </Alert>
+          ) : (
+            <Alert variant='success'>
+              Great! Please press Sign Up if you need an access code!
+            </Alert>
+          )}
 
           <input
             onChange={this.onChangeAccessCode}
@@ -87,7 +97,10 @@ export default class Signup extends Component {
             placeholder='Access Code'
             name='accessCode'
           />
-          <button className='form-field' type='submit'>
+          <Alert variant='primary'>
+            Enter your access code here if you have it!
+          </Alert>
+          <button className='form-field' type='submit' disabled={false}>
             Sign Up
           </button>
         </form>
