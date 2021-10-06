@@ -19,6 +19,7 @@ export default class Signup extends Component {
       phoneNumber: '',
       accessCode: '',
       formError: false,
+      message: '',
     };
   }
 
@@ -44,6 +45,7 @@ export default class Signup extends Component {
         .post('/api/users', userObject)
         .then(res => {
           console.log(res.data);
+          this.setState({ message: res.data.message });
         })
         .catch(error => {
           console.log(error);
@@ -55,6 +57,7 @@ export default class Signup extends Component {
         .post('/api/create', userObject)
         .then(res => {
           console.log(res.data);
+          this.setState({ message: res.data.message });
         })
         .catch(error => {
           console.log(error);
@@ -66,6 +69,7 @@ export default class Signup extends Component {
   render() {
     return (
       <div className='form-container'>
+        <Alert variant='success'>{this.state.message} </Alert>
         <form className='register-form' onSubmit={this.onSubmit}>
           <input
             onChange={this.onChangePhoneNumber}
@@ -75,6 +79,7 @@ export default class Signup extends Component {
             // type='text'
             placeholder='Phone Number'
             name='phoneNumber'
+            maxlength='10'
             required
           />
           {this.state.phoneNumber.length < 10 ? (
@@ -96,10 +101,17 @@ export default class Signup extends Component {
             // type='text'
             placeholder='Access Code'
             name='accessCode'
+            maxlength='6'
           />
-          <Alert variant='primary'>
-            Enter your access code here if you have it!
-          </Alert>
+          {this.state.accessCode.length < 6 ? (
+            <Alert variant='primary'>
+              Enter your access code here if you have it!
+            </Alert>
+          ) : (
+            <Alert variant='success'>
+              Awesome! Now you can verify your number!
+            </Alert>
+          )}
           <button className='form-field' type='submit' disabled={false}>
             Sign Up
           </button>
