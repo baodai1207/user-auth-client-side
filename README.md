@@ -29,6 +29,10 @@ Open http://localhost:3000
 
 ![Capture7](https://user-images.githubusercontent.com/25336029/136139052-626f94bc-9d48-460f-b9e0-4c14177e8e39.PNG)
 
+### Recived the text message of access code from Twilio
+
+![Capture7](https://user-images.githubusercontent.com/25336029/136139582-2e06750d-c431-4ab3-a9b7-d3bcd4ccf64c.PNG)
+
 ### Input the access code
 
 ![Capture5](https://user-images.githubusercontent.com/25336029/136139050-7083c8c9-444f-490d-8e20-6bda9ff90d71.PNG)
