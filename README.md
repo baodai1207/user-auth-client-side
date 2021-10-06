@@ -7,11 +7,11 @@ Please Download server side and client side at:
 
 
 ## Client side
-#### Components
-Signup.jsx: Front end development and parse user input to backend
-signup.css: basic front end css file
-App.js: function return Signup.jsx
-index.js: render front end development
+#### Components:
+1. Signup.jsx: Front end development and parse user input to backend
+2. signup.css: basic front end css file
+3. App.js: function return Signup.jsx
+4. index.js: render front end development
 
 
 In the project directory, you can run:
