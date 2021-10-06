@@ -69,8 +69,8 @@ export default class Signup extends Component {
   render() {
     return (
       <div className='form-container'>
-        <Alert variant='success'>{this.state.message} </Alert>
         <form className='register-form' onSubmit={this.onSubmit}>
+          <Alert variant='success'>{this.state.message} </Alert>
           <input
             onChange={this.onChangePhoneNumber}
             value={this.state.phoneNumber}
